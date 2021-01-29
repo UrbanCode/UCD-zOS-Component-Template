@@ -8,7 +8,8 @@ Latest version of below plugins
 3) z/OS Utility Generate Artifact Information (v4 or higher)
 4) z/OS USS Utility (or) Replace Token USS (v1 or higher)
 
-Note: Latest version of above plugins can be downloaded from below urls respectively
+Note: Latest version of above plugins can be downloaded from below URLs respectively
+
 https://www.urbancode.com/plugin/ibm-urbancode-deploy-versioned-file-storage/
 
 https://www.urbancode.com/plugin/z-os-utility/
