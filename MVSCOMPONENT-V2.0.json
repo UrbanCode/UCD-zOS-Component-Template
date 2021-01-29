@@ -1,0 +1,1610 @@
+{
+    "securityResourceId": "1774e47b-0d2b-27b9-c3b9-a444bd8151cc",
+    "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68",
+    "name": "MVSCOMPONENT-V2.0",
+    "description": "This MVS template includes process designs for a Regular Deployment and Multi Deployment for both new package format and old package format",
+    "ignoreQualifiers": 0,
+    "componentType": "ZOS",
+    "sourceConfigPluginName": "",
+    "tags": [],
+    "active": true,
+    "importConfigurationStrategy": "default",
+    "envPropDefs": [
+        {
+            "name": "jes.host",
+            "label": "jes.host",
+            "pattern": "",
+            "type": "TEXT",
+            "isHidden": false,
+            "required": true,
+            "description": "The host where JCL job is submitted.",
+            "placeholder": ""
+        },
+        {
+            "name": "jes.monitor.port",
+            "label": "jes.monitor.port",
+            "pattern": "",
+            "type": "TEXT",
+            "isHidden": false,
+            "required": true,
+            "description": "JES job monitor port.",
+            "placeholder": ""
+        },
+        {
+            "name": "jes.user",
+            "label": "jes.user",
+            "pattern": "",
+            "type": "TEXT",
+            "isHidden": false,
+            "required": true,
+            "description": "The user to connect to jes.host.",
+            "placeholder": ""
+        },
+        {
+            "name": "jes.password",
+            "label": "jes.password",
+            "pattern": "",
+            "type": "SECURE",
+            "isHidden": false,
+            "value": "",
+            "required": false,
+            "description": "The password of jes.user. Note: This is an optional field. Either password or RACF Pass ticket can be setup for User authentication",
+            "placeholder": ""
+        },
+        {
+            "name": "deploy.env.hfs.targetdir",
+            "label": "deploy.env.hfs.targetdir",
+            "pattern": "",
+            "type": "TEXTAREA",
+            "isHidden": false,
+            "required": false,
+            "description": "HFS Directory Mapping",
+            "placeholder": ""
+        },
+        {
+            "name": "deploy.env.pds.mapping",
+            "label": "deploy.env.pds.mapping",
+            "pattern": "",
+            "type": "TEXTAREA",
+            "isHidden": false,
+            "required": false,
+            "description": "Data Set Mapping",
+            "placeholder": ""
+        }
+    ],
+    "resPropDefs": [],
+    "propDefs": [],
+    "properties": [],
+    "processes": [
+        {
+            "name": "Deploy-Component-Process-1",
+            "description": "Sample Deployment Process Design with old package format",
+            "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+            "takesVersion": true,
+            "inventoryActionType": "ADD",
+            "status": "Active",
+            "configActionType": "ADD",
+            "active": true,
+            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-0f23-c5e1-7616-0e786c588f05",
+            "deleted": false,
+            "propDefs": [],
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "artifactInfo",
+                        "from": "Deploy Data Sets",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "JCLs present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "BIND Job",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "Replace Tokens in JCL",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "JCLs present",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "Replace Tokens in JCL",
+                        "from": "JCLs present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "Download Artifacts for zOS",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "JCLs present",
+                        "from": "BIND Job",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "Deploy Data Sets",
+                        "x": -133.4510158780522,
+                        "y": 310,
+                        "h": 110,
+                        "w": 420
+                    },
+                    {
+                        "name": "JCLs present",
+                        "x": -324.4440520074794,
+                        "y": 950,
+                        "h": 110,
+                        "w": 620
+                    },
+                    {
+                        "name": "DB2 binds present",
+                        "x": -230.73181022629194,
+                        "y": 630,
+                        "h": 110,
+                        "w": 630
+                    },
+                    {
+                        "name": "Download Artifacts for zOS",
+                        "x": -200,
+                        "y": 150,
+                        "h": 110,
+                        "w": 550
+                    },
+                    {
+                        "name": "artifactInfo",
+                        "x": -255.35304763415667,
+                        "y": 470,
+                        "h": 110,
+                        "w": 670
+                    },
+                    {
+                        "name": "BIND Job",
+                        "x": -181.9440520074794,
+                        "y": 790,
+                        "h": 110,
+                        "w": 340
+                    },
+                    {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": -196.9440520074794,
+                        "y": 1270,
+                        "h": 100,
+                        "w": 160
+                    },
+                    {
+                        "name": "Replace Tokens in JCL",
+                        "x": -221.9440520074794,
+                        "y": 1110,
+                        "h": 110,
+                        "w": 480
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "059459d7-027f-479b-bb13-ceb3a34ee856",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 35,
+                        "commandName": "Download Artifacts for zOS",
+                        "pluginName": "UrbanCode Deploy Versioned File Storage",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "versionId": "${p:version.id}",
+                            "versionName": "${p:version.name}",
+                            "serverUrl": "${p:server.url}",
+                            "compId": "${p:component.id}",
+                            "repositoryType": "${p?:version\/ucd.repository.type}",
+                            "resourceId": "${p:resource.id}",
+                            "maxMemory": "1G"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Download Artifacts for zOS",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Deploy Data Sets",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "pdsMapping": "${p?:deploy.env.pds.mapping}",
+                            "incrementalMode": "FULL",
+                            "containerFilter": "",
+                            "deleteCurrentContents": "false",
+                            "printLogs": "false",
+                            "checkAccess": "true",
+                            "doBackup": "true",
+                            "allowCreateDataset": "TRUE",
+                            "hfsTargetDir": "${p?:deploy.env.hfs.targetdir}",
+                            "allowCreateDirectory": "TRUE",
+                            "binderPath": "\/usr\/lib",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "tempDsnPrefix": "${p?:BUZ_TMP_DSN_PREFIX}",
+                            "versionMerge": "${p?:version\/ucd.version.ismerged}",
+                            "versionName": "${p:version.name}",
+                            "versionId": "${p:version.id}",
+                            "versionType": "${p:version.type}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}",
+                            "componentId": "${p:component.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Deploy Data Sets",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Submit Job",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "mvsFilename": "",
+                            "ussFilename": "",
+                            "jclString": "\/\/DEMOBIND JOB  MSGCLASS=1,REGION=0M,NOTIFY=&SYSUID\r\n\/\/BIND     EXEC PGM=IKJEFT01,REGION=4096K        \r\n\/\/STEPLIB  DD  DISP=SHR,DSN=DB2.VC10.SDSNLOAD\r\n\/\/SYSPRINT DD  SYSOUT=*                          \r\n\/\/SYSTSPRT DD  SYSOUT=*                          \r\n\/\/SYSUDUMP DD  SYSOUT=*                          \r\n\/\/SYSTSIN  DD  *,SYMBOLS=JCLONLY  \r\nDSN SYSTEM(DBC2)\r\n${p:artifactInfo\/bindCard}\r\nEND\r\n\/\/*   ",
+                            "jobCard": "",
+                            "explicitTokens": "",
+                            "explicitTokensForeachJob": "",
+                            "waitForJob": "true",
+                            "stopOnFail": "true",
+                            "timeout": "60",
+                            "showOutput": "ALL",
+                            "cutOff": "1000",
+                            "maxRC": "4",
+                            "hostname": "${p:jes.host}",
+                            "port": "${p:jes.monitor.port}",
+                            "userid": "${p:jes.user}",
+                            "password": "${p?:jes.password}",
+                            "usePassticket": "true",
+                            "irrracfJarFile": "\/usr\/include\/java_classes\/IRRRacf.jar",
+                            "irrracfLibraryPath": "\/usr\/lib",
+                            "outputPagination": "false"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "BIND Job",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Replace Tokens MVS",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "includes": "${p:artifactInfo\/jclName}",
+                            "isWildCardAllowed": "false",
+                            "excludes": "",
+                            "startDelimiter": "@",
+                            "endDelimiter": "@",
+                            "propertyPrefix": "",
+                            "envPropValues": "",
+                            "explicitTokens": "LOADLIB->UCD.DEMO.SOURCE.LOAD\nDB2S->DBC2\nDB2PLAN->UCDPLN02",
+                            "failOnTruncate": "true"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Replace Tokens in JCL",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:artifactInfo\/jclName-count}",
+                        "type": "switch",
+                        "name": "JCLs present",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 4,
+                        "commandName": "Generate Multiple Artifact Information",
+                        "pluginName": "zOS Utility Generate Artifact Information",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "loopType": "Member",
+                            "orderBy": "ASC",
+                            "srcDatasetName": "{ \n    \"jclName\" : \"\/.*JCL\/\",\n    \"bindCard\": \"\/.*DBRM\/\"\n}",
+                            "datasetName": "",
+                            "memberName": "",
+                            "deployTypeName": "",
+                            "custProperties": "",
+                            "templateText": "{ \n    \"jclName\" : \"${dataset}(${member}),\",\n    \"bindCard\" : \n    \" \n    BIND PACKAGE(${member}) MEMBER(${member}) - \n     ACTION(REPLACE) ENCODING(EBCDIC) - \n     LIBRARY('${dataset}')               \n    \"\n}",
+                            "ignoreUnresolved": "false",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "versionName": "${p:version.name}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "artifactInfo",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:artifactInfo\/bindCard-count}",
+                        "type": "switch",
+                        "name": "DB2 binds present",
+                        "children": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Deploy-Component-Process-2",
+            "description": "Sample Deployment Process Design for new package format",
+            "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+            "takesVersion": true,
+            "inventoryActionType": "ADD",
+            "status": "Active",
+            "configActionType": "ADD",
+            "active": true,
+            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-0f88-8f96-75a3-37bafe9db501",
+            "deleted": false,
+            "propDefs": [],
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "Replace Tokens USS",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Download Artifacts for zOS",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "artifactInfo",
+                        "from": "Deploy Data Sets",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "BIND Job",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "BIND Job",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets",
+                        "from": "Replace Tokens USS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": 28.999902678733406,
+                        "y": 980,
+                        "h": 90,
+                        "w": 150
+                    },
+                    {
+                        "name": "Replace Tokens USS",
+                        "x": -129.71665750147093,
+                        "y": 280,
+                        "h": 90,
+                        "w": 410
+                    },
+                    {
+                        "name": "Deploy Data Sets",
+                        "x": -109.43331500294187,
+                        "y": 420,
+                        "h": 90,
+                        "w": 380
+                    },
+                    {
+                        "name": "artifactInfo",
+                        "x": -206.7563874026821,
+                        "y": 560,
+                        "h": 90,
+                        "w": 590
+                    },
+                    {
+                        "name": "DB2 binds present",
+                        "x": -182.18204699575926,
+                        "y": 700,
+                        "h": 90,
+                        "w": 560
+                    },
+                    {
+                        "name": "BIND Job",
+                        "x": -143.5000973212666,
+                        "y": 840,
+                        "h": 90,
+                        "w": 310
+                    },
+                    {
+                        "name": "Download Artifacts for zOS",
+                        "x": -175,
+                        "y": 140,
+                        "h": 90,
+                        "w": 490
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "cb43394e-7609-4734-91ed-f78cd40e6eea",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 35,
+                        "commandName": "Download Artifacts for zOS",
+                        "pluginName": "UrbanCode Deploy Versioned File Storage",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "versionId": "${p:version.id}",
+                            "versionName": "${p:version.name}",
+                            "serverUrl": "${p:server.url}",
+                            "compId": "${p:component.id}",
+                            "repositoryType": "${p?:version\/ucd.repository.type}",
+                            "resourceId": "${p:resource.id}",
+                            "maxMemory": "1G"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Download Artifacts for zOS",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Deploy Data Sets",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "pdsMapping": "${p?:deploy.env.pds.mapping}",
+                            "incrementalMode": "FULL",
+                            "containerFilter": "",
+                            "deleteCurrentContents": "false",
+                            "printLogs": "false",
+                            "checkAccess": "true",
+                            "doBackup": "true",
+                            "allowCreateDataset": "TRUE",
+                            "hfsTargetDir": "${p?:deploy.env.hfs.targetdir}",
+                            "allowCreateDirectory": "TRUE",
+                            "binderPath": "\/usr\/lib",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "tempDsnPrefix": "${p?:BUZ_TMP_DSN_PREFIX}",
+                            "versionMerge": "${p?:version\/ucd.version.ismerged}",
+                            "versionName": "${p:version.name}",
+                            "versionId": "${p:version.id}",
+                            "versionType": "${p:version.type}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}",
+                            "componentId": "${p:component.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Deploy Data Sets",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Submit Job",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "mvsFilename": "",
+                            "ussFilename": "",
+                            "jclString": "\/\/DEMOBIND JOB  MSGCLASS=1,REGION=0M,NOTIFY=&SYSUID\r\n\/\/BIND     EXEC PGM=IKJEFT01,REGION=4096K        \r\n\/\/STEPLIB  DD  DISP=SHR,DSN=DB2.VC10.SDSNLOAD\r\n\/\/SYSPRINT DD  SYSOUT=*                          \r\n\/\/SYSTSPRT DD  SYSOUT=*                          \r\n\/\/SYSUDUMP DD  SYSOUT=*                          \r\n\/\/SYSTSIN  DD  *,SYMBOLS=JCLONLY  \r\nDSN SYSTEM(DBC2)\r\n${p:artifactInfo\/bindCard}\r\nEND\r\n\/\/*   ",
+                            "jobCard": "",
+                            "explicitTokens": "",
+                            "explicitTokensForeachJob": "",
+                            "waitForJob": "true",
+                            "stopOnFail": "true",
+                            "timeout": "60",
+                            "showOutput": "ALL",
+                            "cutOff": "1000",
+                            "maxRC": "4",
+                            "hostname": "${p:jes.host}",
+                            "port": "${p:jes.monitor.port}",
+                            "userid": "${p:jes.user}",
+                            "password": "${p?:jes.password}",
+                            "usePassticket": "true",
+                            "irrracfJarFile": "\/usr\/include\/java_classes\/IRRRacf.jar",
+                            "irrracfLibraryPath": "\/usr\/lib",
+                            "outputPagination": "false"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "BIND Job",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 4,
+                        "commandName": "Generate Multiple Artifact Information",
+                        "pluginName": "zOS Utility Generate Artifact Information",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "loopType": "Member",
+                            "orderBy": "ASC",
+                            "srcDatasetName": "{ \n    \"bindCard\": \"\/.*DBRM\/\"\n}",
+                            "datasetName": "",
+                            "memberName": "",
+                            "deployTypeName": "",
+                            "custProperties": "",
+                            "templateText": "{ \n    \"bindCard\" : \n    \" \n    BIND PACKAGE(${member}) MEMBER(${member}) - \n     ACTION(REPLACE) ENCODING(EBCDIC) - \n     LIBRARY('${dataset}')               \n    \"\n}",
+                            "ignoreUnresolved": "false",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "versionName": "${p:version.name}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "artifactInfo",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:artifactInfo\/bindCard-count}",
+                        "type": "switch",
+                        "name": "DB2 binds present",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 1,
+                        "commandName": "Replace Tokens USS",
+                        "pluginName": "Replace Token USS",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "includes": "*.JCL\/*",
+                            "excludes": "",
+                            "envPropValues": "",
+                            "propertyPrefix": "",
+                            "explicitTokens": "@LOADLIB@->UCD.DEMO.SOURCE.LOAD\r\n@DB2S@->DBC2\r\n@DB2PLAN@->UCDPLN02",
+                            "startDelimiter": "",
+                            "endDelimiter": "",
+                            "propFile": "replace_tokens.properties",
+                            "dir": "${p:resource.id}\/${p:version.name}",
+                            "customEncoding": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Replace Tokens USS",
+                        "children": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Partial Deployment - 1",
+            "description": "Sample Partial Deployment Process Design with old package format",
+            "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+            "takesVersion": true,
+            "inventoryActionType": "ADD",
+            "status": "Active",
+            "configActionType": "ADD",
+            "active": true,
+            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-0fe7-e35e-1fd6-996e67917ce8",
+            "deleted": false,
+            "propDefs": [],
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "BIND Job",
+                        "type": "FAILURE",
+                        "value": ""
+                    },
+                    {
+                        "to": "JCLs present",
+                        "from": "Deploy Data Sets Others",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Is all containers deployed?",
+                        "from": "JCLs present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Download Artifacts for zOS",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "BIND Job",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets (Only DBRMs)",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Replace Tokens in JCL",
+                        "from": "JCLs present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "Is all containers deployed?",
+                        "from": "Replace Tokens in JCL",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
+                        "from": "BIND Job",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "artifactInfo",
+                        "from": "Deploy Data Sets (Only DBRMs)",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "from": "Is all containers deployed?",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "Is all containers deployed?",
+                        "type": "VALUE",
+                        "value": "0"
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "x": -149.77492200847598,
+                        "y": 1590,
+                        "h": 70,
+                        "w": 360
+                    },
+                    {
+                        "name": "Download Artifacts for zOS",
+                        "x": -215,
+                        "y": 150,
+                        "h": 110,
+                        "w": 580
+                    },
+                    {
+                        "name": "Deploy Data Sets Others",
+                        "x": -111.40043641176817,
+                        "y": 950,
+                        "h": 110,
+                        "w": 440
+                    },
+                    {
+                        "name": "BIND Job",
+                        "x": -197.18232941588337,
+                        "y": 790,
+                        "h": 110,
+                        "w": 360
+                    },
+                    {
+                        "name": "JCLs present",
+                        "x": -174.83665040353776,
+                        "y": 1110,
+                        "h": 110,
+                        "w": 650
+                    },
+                    {
+                        "name": "Is all containers deployed?",
+                        "x": -307.274922008476,
+                        "y": 1430,
+                        "h": 110,
+                        "w": 920
+                    },
+                    {
+                        "name": "DB2 binds present",
+                        "x": -250.9011626662833,
+                        "y": 630,
+                        "h": 110,
+                        "w": 670
+                    },
+                    {
+                        "name": "artifactInfo",
+                        "x": -275.43796991037755,
+                        "y": 470,
+                        "h": 110,
+                        "w": 710
+                    },
+                    {
+                        "name": "Replace Tokens in JCL",
+                        "x": -219.77492200847598,
+                        "y": 1270,
+                        "h": 110,
+                        "w": 500
+                    },
+                    {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": -54.77492200847598,
+                        "y": 1710,
+                        "h": 100,
+                        "w": 170
+                    },
+                    {
+                        "name": "Deploy Data Sets (Only DBRMs)",
+                        "x": -203.47932330345918,
+                        "y": 310,
+                        "h": 110,
+                        "w": 560
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "0674ea33-74b7-4ada-b13e-49671475b26a",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 35,
+                        "commandName": "Download Artifacts for zOS",
+                        "pluginName": "UrbanCode Deploy Versioned File Storage",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "versionId": "${p:version.id}",
+                            "versionName": "${p:version.name}",
+                            "serverUrl": "${p:server.url}",
+                            "compId": "${p:component.id}",
+                            "repositoryType": "${p?:version\/ucd.repository.type}",
+                            "resourceId": "${p:resource.id}",
+                            "maxMemory": "1G"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Download Artifacts for zOS",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Deploy Data Sets",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "pdsMapping": "${p?:deploy.env.pds.mapping}",
+                            "incrementalMode": "FULL",
+                            "containerFilter": "\/.*\/",
+                            "deleteCurrentContents": "false",
+                            "printLogs": "false",
+                            "checkAccess": "false",
+                            "doBackup": "true",
+                            "allowCreateDataset": "TRUE",
+                            "hfsTargetDir": "${p?:deploy.env.hfs.targetdir}",
+                            "allowCreateDirectory": "TRUE",
+                            "binderPath": "\/usr\/lib",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "tempDsnPrefix": "${p?:BUZ_TMP_DSN_PREFIX}",
+                            "versionMerge": "${p?:version\/ucd.version.ismerged}",
+                            "versionName": "${p:version.name}",
+                            "versionId": "${p:version.id}",
+                            "versionType": "${p:version.type}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}",
+                            "componentId": "${p:component.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Deploy Data Sets Others",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Submit Job",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "mvsFilename": "",
+                            "ussFilename": "",
+                            "jclString": "\/\/DEMOBIND JOB  MSGCLASS=1,REGION=0M,NOTIFY=&SYSUID\r\n\/\/BIND     EXEC PGM=IKJEFT01,REGION=4096K        \r\n\/\/STEPLIB  DD  DISP=SHR,DSN=DB2.VC10.SDSNLOAD\r\n\/\/SYSPRINT DD  SYSOUT=*                          \r\n\/\/SYSTSPRT DD  SYSOUT=*                          \r\n\/\/SYSUDUMP DD  SYSOUT=*                          \r\n\/\/SYSTSIN  DD  *,SYMBOLS=JCLONLY  \r\nDSN SYSTEM(DBC2)\r\n${p:artifactInfo\/bindCard}\r\nEND\r\n\/\/*   ",
+                            "jobCard": "",
+                            "explicitTokens": "",
+                            "explicitTokensForeachJob": "",
+                            "waitForJob": "true",
+                            "stopOnFail": "true",
+                            "timeout": "60",
+                            "showOutput": "ALL",
+                            "cutOff": "1000",
+                            "maxRC": "4",
+                            "hostname": "${p:jes.host}",
+                            "port": "${p:jes.monitor.port}",
+                            "userid": "${p:jes.user}",
+                            "password": "${p?:jes.password}",
+                            "usePassticket": "true",
+                            "irrracfJarFile": "\/usr\/include\/java_classes\/IRRRacf.jar",
+                            "irrracfLibraryPath": "\/usr\/lib",
+                            "outputPagination": "false"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "BIND Job",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 4,
+                        "commandName": "Generate Multiple Artifact Information",
+                        "pluginName": "zOS Utility Generate Artifact Information",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "loopType": "Member",
+                            "orderBy": "ASC",
+                            "srcDatasetName": "{ \n    \"jclName\" : \"\/.*JCL\/\",\n    \"bindCard\": \"\/.*DBRM\/\"\n}",
+                            "datasetName": "",
+                            "memberName": "",
+                            "deployTypeName": "",
+                            "custProperties": "",
+                            "templateText": "{ \n    \"jclName\" : \"${dataset}(${member})\",\n    \"bindCard\" : \n    \" \n    BIND PACKAGE(${member}) MEMBER(${member}) - \n     ACTION(REPLACE) ENCODING(EBCDIC) - \n     LIBRARY('${dataset}')               \n    \"\n}",
+                            "ignoreUnresolved": "false",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "versionName": "${p:version.name}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "artifactInfo",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:artifactInfo\/bindCard-count}",
+                        "type": "switch",
+                        "name": "DB2 binds present",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Deploy Data Sets",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "pdsMapping": "${p?:deploy.env.pds.mapping}",
+                            "incrementalMode": "FULL",
+                            "containerFilter": "\/.*DBRM\/",
+                            "deleteCurrentContents": "false",
+                            "printLogs": "false",
+                            "checkAccess": "false",
+                            "doBackup": "true",
+                            "allowCreateDataset": "TRUE",
+                            "hfsTargetDir": "${p?:deploy.env.hfs.targetdir}",
+                            "allowCreateDirectory": "TRUE",
+                            "binderPath": "\/usr\/lib",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "tempDsnPrefix": "${p?:BUZ_TMP_DSN_PREFIX}",
+                            "versionMerge": "${p?:version\/ucd.version.ismerged}",
+                            "versionName": "${p:version.name}",
+                            "versionId": "${p:version.id}",
+                            "versionType": "${p:version.type}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}",
+                            "componentId": "${p:component.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Deploy Data Sets (Only DBRMs)",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:Deploy Data Sets Others\/remainingDatasets}",
+                        "type": "switch",
+                        "name": "Is all containers deployed?",
+                        "children": []
+                    },
+                    {
+                        "status": "FAILURE",
+                        "type": "setStatus",
+                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:artifactInfo\/jclName-count}",
+                        "type": "switch",
+                        "name": "JCLs present",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Replace Tokens MVS",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "includes": "${p:artifactInfo\/jclName}",
+                            "isWildCardAllowed": "false",
+                            "excludes": "",
+                            "startDelimiter": "@",
+                            "endDelimiter": "@",
+                            "propertyPrefix": "",
+                            "envPropValues": "",
+                            "explicitTokens": "LOADLIB->UCD.DEMO.SOURCE.LOAD\nDB2S->DBC2\nDB2PLAN->UCDPLN02",
+                            "failOnTruncate": "true"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Replace Tokens in JCL",
+                        "children": []
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Partial Deployment - 2",
+            "description": "Sample Partial Deployment Process Design for new package format",
+            "defaultWorkingDir": "${p:resource\/work.dir}\/${p:component.name}",
+            "takesVersion": true,
+            "inventoryActionType": "ADD",
+            "status": "Active",
+            "configActionType": "ADD",
+            "active": true,
+            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-1049-daf0-8dea-770c3da62987",
+            "deleted": false,
+            "propDefs": [],
+            "rootActivity": {
+                "edges": [
+                    {
+                        "to": "Is all containers deployed?",
+                        "from": "Deploy Data Sets Others",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "from": "Is all containers deployed?",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "Is all containers deployed?",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "Download Artifacts for zOS",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "artifactInfo",
+                        "from": "Deploy Data Sets (Only DBRMs)",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "BIND Job",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "BIND Job",
+                        "type": "FAILURE",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
+                        "from": "BIND Job",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Replace Tokens USS",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets (Only DBRMs)",
+                        "from": "Replace Tokens USS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    }
+                ],
+                "offsets": [
+                    {
+                        "name": "Download Artifacts for zOS",
+                        "x": -215,
+                        "y": 150,
+                        "h": 110,
+                        "w": 580
+                    },
+                    {
+                        "name": "Deploy Data Sets Others",
+                        "x": -174.66890196256998,
+                        "y": 1110,
+                        "h": 110,
+                        "w": 440
+                    },
+                    {
+                        "name": "DB2 binds present",
+                        "x": -275.03398355607743,
+                        "y": 790,
+                        "h": 110,
+                        "w": 670
+                    },
+                    {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": 32.9854190250843,
+                        "y": 1550,
+                        "h": 100,
+                        "w": 170
+                    },
+                    {
+                        "name": "artifactInfo",
+                        "x": -289.06955588698895,
+                        "y": 630,
+                        "h": 110,
+                        "w": 710
+                    },
+                    {
+                        "name": "BIND Job",
+                        "x": -18.68124764158233,
+                        "y": 950,
+                        "h": 110,
+                        "w": 360
+                    },
+                    {
+                        "name": "Deploy Data Sets (Only DBRMs)",
+                        "x": -209.54706938183006,
+                        "y": 470,
+                        "h": 110,
+                        "w": 560
+                    },
+                    {
+                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "x": -62.0145809749157,
+                        "y": 1430,
+                        "h": 70,
+                        "w": 360
+                    },
+                    {
+                        "name": "Replace Tokens USS",
+                        "x": -166.51568979394335,
+                        "y": 310,
+                        "h": 110,
+                        "w": 480
+                    },
+                    {
+                        "name": "Is all containers deployed?",
+                        "x": -436.6442106045453,
+                        "y": 1270,
+                        "h": 110,
+                        "w": 920
+                    }
+                ],
+                "layoutMode": "auto",
+                "type": "graph",
+                "name": "964118ce-6b9b-42ba-90f4-2e7b36104400",
+                "children": [
+                    {
+                        "type": "finish",
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 35,
+                        "commandName": "Download Artifacts for zOS",
+                        "pluginName": "UrbanCode Deploy Versioned File Storage",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "directoryOffset": ".",
+                            "versionId": "${p:version.id}",
+                            "versionName": "${p:version.name}",
+                            "serverUrl": "${p:server.url}",
+                            "compId": "${p:component.id}",
+                            "repositoryType": "${p?:version\/ucd.repository.type}",
+                            "resourceId": "${p:resource.id}",
+                            "maxMemory": "1G"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Download Artifacts for zOS",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Deploy Data Sets",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "pdsMapping": "${p?:deploy.env.pds.mapping}",
+                            "incrementalMode": "FULL",
+                            "containerFilter": "\/.*\/",
+                            "deleteCurrentContents": "false",
+                            "printLogs": "false",
+                            "checkAccess": "false",
+                            "doBackup": "true",
+                            "allowCreateDataset": "TRUE",
+                            "hfsTargetDir": "${p?:deploy.env.hfs.targetdir}",
+                            "allowCreateDirectory": "TRUE",
+                            "binderPath": "\/usr\/lib",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "tempDsnPrefix": "${p?:BUZ_TMP_DSN_PREFIX}",
+                            "versionMerge": "${p?:version\/ucd.version.ismerged}",
+                            "versionName": "${p:version.name}",
+                            "versionId": "${p:version.id}",
+                            "versionType": "${p:version.type}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}",
+                            "componentId": "${p:component.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Deploy Data Sets Others",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Submit Job",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "mvsFilename": "",
+                            "ussFilename": "",
+                            "jclString": "\/\/DEMOBIND JOB  MSGCLASS=1,REGION=0M,NOTIFY=&SYSUID\r\n\/\/BIND     EXEC PGM=IKJEFT01,REGION=4096K        \r\n\/\/STEPLIB  DD  DISP=SHR,DSN=DB2.VC10.SDSNLOAD\r\n\/\/SYSPRINT DD  SYSOUT=*                          \r\n\/\/SYSTSPRT DD  SYSOUT=*                          \r\n\/\/SYSUDUMP DD  SYSOUT=*                          \r\n\/\/SYSTSIN  DD  *,SYMBOLS=JCLONLY  \r\nDSN SYSTEM(DBC2)\r\n${p:artifactInfo\/bindCard}\r\nEND\r\n\/\/*   ",
+                            "jobCard": "",
+                            "explicitTokens": "",
+                            "explicitTokensForeachJob": "",
+                            "waitForJob": "true",
+                            "stopOnFail": "true",
+                            "timeout": "60",
+                            "showOutput": "ALL",
+                            "cutOff": "1000",
+                            "maxRC": "4",
+                            "hostname": "${p:jes.host}",
+                            "port": "${p:jes.monitor.port}",
+                            "userid": "${p:jes.user}",
+                            "password": "${p?:jes.password}",
+                            "usePassticket": "true",
+                            "irrracfJarFile": "\/usr\/include\/java_classes\/IRRRacf.jar",
+                            "irrracfLibraryPath": "\/usr\/lib",
+                            "outputPagination": "false"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "BIND Job",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 4,
+                        "commandName": "Generate Multiple Artifact Information",
+                        "pluginName": "zOS Utility Generate Artifact Information",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "loopType": "Member",
+                            "orderBy": "ASC",
+                            "srcDatasetName": "{ \n    \"bindCard\": \"\/.*DBRM\/\"\n}",
+                            "datasetName": "",
+                            "memberName": "",
+                            "deployTypeName": "",
+                            "custProperties": "",
+                            "templateText": "{ \n    \"bindCard\" : \n    \" \n    BIND PACKAGE(${member}) MEMBER(${member}) - \n     ACTION(REPLACE) ENCODING(EBCDIC) - \n     LIBRARY('${dataset}')               \n    \"\n}",
+                            "ignoreUnresolved": "false",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "versionName": "${p:version.name}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "artifactInfo",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:artifactInfo\/bindCard-count}",
+                        "type": "switch",
+                        "name": "DB2 binds present",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 1,
+                        "commandName": "Replace Tokens USS",
+                        "pluginName": "Replace Token USS",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "includes": "*.JCL\/*",
+                            "excludes": "",
+                            "envPropValues": "",
+                            "propertyPrefix": "",
+                            "explicitTokens": "@LOADLIB@->UCD.DEMO.SOURCE.LOAD\r\n@DB2S@->DBC2\r\n@DB2PLAN@->UCDPLN02",
+                            "startDelimiter": "",
+                            "endDelimiter": "",
+                            "propFile": "replace_tokens.properties",
+                            "dir": "${p:resource.id}\/${p:version.name}",
+                            "customEncoding": ""
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Replace Tokens USS",
+                        "children": []
+                    },
+                    {
+                        "allowFailure": false,
+                        "useImpersonation": false,
+                        "showHidden": false,
+                        "impersonationUseSudo": false,
+                        "pluginVersion": 56,
+                        "commandName": "Deploy Data Sets",
+                        "pluginName": "zOS Utility",
+                        "authTokenRestriction": "20000001-0001-0001-0001-000000000000",
+                        "properties": {
+                            "pdsMapping": "${p?:deploy.env.pds.mapping}",
+                            "incrementalMode": "FULL",
+                            "containerFilter": "\/.*DBRM\/",
+                            "deleteCurrentContents": "false",
+                            "printLogs": "false",
+                            "checkAccess": "false",
+                            "doBackup": "true",
+                            "allowCreateDataset": "TRUE",
+                            "hfsTargetDir": "${p?:deploy.env.hfs.targetdir}",
+                            "allowCreateDirectory": "TRUE",
+                            "binderPath": "\/usr\/lib",
+                            "deployBasePath": "${BUZ_DEPLOY_BASE}",
+                            "tempDsnPrefix": "${p?:BUZ_TMP_DSN_PREFIX}",
+                            "versionMerge": "${p?:version\/ucd.version.ismerged}",
+                            "versionName": "${p:version.name}",
+                            "versionId": "${p:version.id}",
+                            "versionType": "${p:version.type}",
+                            "componentName": "${p:component.name}",
+                            "resourceId": "${p:resource.id}",
+                            "componentId": "${p:component.id}"
+                        },
+                        "cachedAuthTokenRestriction": {
+                            "name": "System Default",
+                            "description": "Used by default for any plugin steps without a specified token restriction",
+                            "restrictions": [{
+                                "verb": "ALL",
+                                "url": "\/*"
+                            }]
+                        },
+                        "type": "plugin",
+                        "name": "Deploy Data Sets (Only DBRMs)",
+                        "children": []
+                    },
+                    {
+                        "propertyName": "${p:Deploy Data Sets Others\/remainingDatasets}",
+                        "type": "switch",
+                        "name": "Is all containers deployed?",
+                        "children": []
+                    },
+                    {
+                        "status": "FAILURE",
+                        "type": "setStatus",
+                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "children": []
+                    }
+                ]
+            }
+        }
+    ],
+    "genericProcesses": [],
+    "teamMappings": []
+}
