@@ -1,6 +1,6 @@
 {
-    "securityResourceId": "1774e47b-0d2b-27b9-c3b9-a444bd8151cc",
-    "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68",
+    "securityResourceId": "17863858-225c-0f8c-bd72-f4e4e189840f",
+    "path": "componentTemplates\/17863858-2284-4393-2e53-db4e4b9b642b",
     "name": "MVSCOMPONENT-V2.0",
     "description": "This MVS template includes process designs for a Regular Deployment and Multi Deployment for both new package format and old package format",
     "ignoreQualifiers": 0,
@@ -85,11 +85,29 @@
             "status": "Active",
             "configActionType": "ADD",
             "active": true,
-            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-0f23-c5e1-7616-0e786c588f05",
+            "path": "componentTemplates\/17863858-2284-4393-2e53-db4e4b9b642b\/processes\/17863858-2450-120e-57ab-128015396581",
             "deleted": false,
             "propDefs": [],
             "rootActivity": {
                 "edges": [
+                    {
+                        "to": "JCLs present",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
                     {
                         "to": "artifactInfo",
                         "from": "Deploy Data Sets",
@@ -109,21 +127,9 @@
                         "value": ""
                     },
                     {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "Replace Tokens in JCL",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
                         "to": "JCLs present",
-                        "from": "DB2 binds present",
-                        "type": "VALUE",
-                        "value": "0"
-                    },
-                    {
-                        "to": "Replace Tokens in JCL",
-                        "from": "JCLs present",
-                        "type": "VALUE",
+                        "from": "BIND Job",
+                        "type": "SUCCESS",
                         "value": ""
                     },
                     {
@@ -132,52 +138,25 @@
                         "value": ""
                     },
                     {
-                        "to": "DB2 binds present",
-                        "from": "artifactInfo",
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "Replace Tokens in JCL",
                         "type": "SUCCESS",
                         "value": ""
                     },
                     {
-                        "to": "JCLs present",
-                        "from": "BIND Job",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Deploy Data Sets",
-                        "from": "Download Artifacts for zOS",
-                        "type": "SUCCESS",
+                        "to": "Replace Tokens in JCL",
+                        "from": "JCLs present",
+                        "type": "VALUE",
                         "value": ""
                     }
                 ],
                 "offsets": [
-                    {
-                        "name": "Deploy Data Sets",
-                        "x": -133.4510158780522,
-                        "y": 310,
-                        "h": 110,
-                        "w": 420
-                    },
                     {
                         "name": "JCLs present",
                         "x": -324.4440520074794,
                         "y": 950,
                         "h": 110,
                         "w": 620
-                    },
-                    {
-                        "name": "DB2 binds present",
-                        "x": -230.73181022629194,
-                        "y": 630,
-                        "h": 110,
-                        "w": 630
-                    },
-                    {
-                        "name": "Download Artifacts for zOS",
-                        "x": -200,
-                        "y": 150,
-                        "h": 110,
-                        "w": 550
                     },
                     {
                         "name": "artifactInfo",
@@ -187,11 +166,18 @@
                         "w": 670
                     },
                     {
-                        "name": "BIND Job",
-                        "x": -181.9440520074794,
-                        "y": 790,
+                        "name": "DB2 binds present",
+                        "x": -230.73181022629194,
+                        "y": 630,
                         "h": 110,
-                        "w": 340
+                        "w": 630
+                    },
+                    {
+                        "name": "Deploy Data Sets",
+                        "x": -133.4510158780522,
+                        "y": 310,
+                        "h": 110,
+                        "w": 420
                     },
                     {
                         "name": "5141234a9f8fc999231bcd52422fa2",
@@ -199,6 +185,20 @@
                         "y": 1270,
                         "h": 100,
                         "w": 160
+                    },
+                    {
+                        "name": "Download Artifacts for zOS",
+                        "x": -200,
+                        "y": 150,
+                        "h": 110,
+                        "w": 550
+                    },
+                    {
+                        "name": "BIND Job",
+                        "x": -181.9440520074794,
+                        "y": 790,
+                        "h": 110,
+                        "w": 340
                     },
                     {
                         "name": "Replace Tokens in JCL",
@@ -210,7 +210,7 @@
                 ],
                 "layoutMode": "auto",
                 "type": "graph",
-                "name": "059459d7-027f-479b-bb13-ceb3a34ee856",
+                "name": "de0046d1-1779-409c-9941-8c5fc9f0c39c",
                 "children": [
                     {
                         "type": "finish",
@@ -426,43 +426,14 @@
             "status": "Active",
             "configActionType": "ADD",
             "active": true,
-            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-0f88-8f96-75a3-37bafe9db501",
+            "path": "componentTemplates\/17863858-2284-4393-2e53-db4e4b9b642b\/processes\/17863858-24b1-6a6e-03c0-015753dcba58",
             "deleted": false,
             "propDefs": [],
             "rootActivity": {
                 "edges": [
                     {
-                        "to": "Replace Tokens USS",
-                        "from": "Download Artifacts for zOS",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Download Artifacts for zOS",
-                        "type": "ALWAYS",
-                        "value": ""
-                    },
-                    {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "DB2 binds present",
-                        "type": "VALUE",
-                        "value": "0"
-                    },
-                    {
                         "to": "artifactInfo",
                         "from": "Deploy Data Sets",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "BIND Job",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "DB2 binds present",
-                        "from": "artifactInfo",
                         "type": "SUCCESS",
                         "value": ""
                     },
@@ -473,27 +444,42 @@
                         "value": ""
                     },
                     {
+                        "to": "Download Artifacts for zOS",
+                        "type": "ALWAYS",
+                        "value": ""
+                    },
+                    {
                         "to": "Deploy Data Sets",
                         "from": "Replace Tokens USS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Replace Tokens USS",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "BIND Job",
                         "type": "SUCCESS",
                         "value": ""
                     }
                 ],
                 "offsets": [
-                    {
-                        "name": "5141234a9f8fc999231bcd52422fa2",
-                        "x": 28.999902678733406,
-                        "y": 980,
-                        "h": 90,
-                        "w": 150
-                    },
-                    {
-                        "name": "Replace Tokens USS",
-                        "x": -129.71665750147093,
-                        "y": 280,
-                        "h": 90,
-                        "w": 410
-                    },
                     {
                         "name": "Deploy Data Sets",
                         "x": -109.43331500294187,
@@ -502,11 +488,25 @@
                         "w": 380
                     },
                     {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": 28.999902678733406,
+                        "y": 980,
+                        "h": 90,
+                        "w": 150
+                    },
+                    {
                         "name": "artifactInfo",
                         "x": -206.7563874026821,
                         "y": 560,
                         "h": 90,
                         "w": 590
+                    },
+                    {
+                        "name": "Replace Tokens USS",
+                        "x": -129.71665750147093,
+                        "y": 280,
+                        "h": 90,
+                        "w": 410
                     },
                     {
                         "name": "DB2 binds present",
@@ -532,7 +532,7 @@
                 ],
                 "layoutMode": "auto",
                 "type": "graph",
-                "name": "cb43394e-7609-4734-91ed-f78cd40e6eea",
+                "name": "fdc5f2f3-6a53-4688-b004-f3eaeff50e0a",
                 "children": [
                     {
                         "type": "finish",
@@ -743,15 +743,39 @@
             "status": "Active",
             "configActionType": "ADD",
             "active": true,
-            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-0fe7-e35e-1fd6-996e67917ce8",
+            "path": "componentTemplates\/17863858-2284-4393-2e53-db4e4b9b642b\/processes\/17863858-251c-910e-14fe-f0bd5e99a5a8",
             "deleted": false,
             "propDefs": [],
             "rootActivity": {
                 "edges": [
                     {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
                         "from": "BIND Job",
-                        "type": "FAILURE",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Is all containers deployed?",
+                        "from": "JCLs present",
+                        "type": "VALUE",
+                        "value": "0"
+                    },
+                    {
+                        "to": "Deploy Data Sets (Only DBRMs)",
+                        "from": "Download Artifacts for zOS",
+                        "type": "SUCCESS",
                         "value": ""
                     },
                     {
@@ -761,38 +785,8 @@
                         "value": ""
                     },
                     {
-                        "to": "Is all containers deployed?",
-                        "from": "JCLs present",
-                        "type": "VALUE",
-                        "value": "0"
-                    },
-                    {
-                        "to": "Deploy Data Sets Others",
-                        "from": "DB2 binds present",
-                        "type": "VALUE",
-                        "value": "0"
-                    },
-                    {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "8c4a989d9bee6d3e8e3fd459a7269e",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
                         "to": "Download Artifacts for zOS",
                         "type": "ALWAYS",
-                        "value": ""
-                    },
-                    {
-                        "to": "BIND Job",
-                        "from": "DB2 binds present",
-                        "type": "VALUE",
-                        "value": ""
-                    },
-                    {
-                        "to": "Deploy Data Sets (Only DBRMs)",
-                        "from": "Download Artifacts for zOS",
-                        "type": "SUCCESS",
                         "value": ""
                     },
                     {
@@ -802,26 +796,20 @@
                         "value": ""
                     },
                     {
+                        "to": "BIND Job",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
                         "to": "Is all containers deployed?",
                         "from": "Replace Tokens in JCL",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "DB2 binds present",
-                        "from": "artifactInfo",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Deploy Data Sets Others",
-                        "from": "BIND Job",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "artifactInfo",
-                        "from": "Deploy Data Sets (Only DBRMs)",
                         "type": "SUCCESS",
                         "value": ""
                     },
@@ -829,6 +817,12 @@
                         "to": "8c4a989d9bee6d3e8e3fd459a7269e",
                         "from": "Is all containers deployed?",
                         "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "artifactInfo",
+                        "from": "Deploy Data Sets (Only DBRMs)",
+                        "type": "SUCCESS",
                         "value": ""
                     },
                     {
@@ -840,86 +834,86 @@
                 ],
                 "offsets": [
                     {
-                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
-                        "x": -149.77492200847598,
-                        "y": 1590,
-                        "h": 70,
-                        "w": 360
-                    },
-                    {
-                        "name": "Download Artifacts for zOS",
-                        "x": -215,
-                        "y": 150,
-                        "h": 110,
-                        "w": 580
-                    },
-                    {
-                        "name": "Deploy Data Sets Others",
-                        "x": -111.40043641176817,
-                        "y": 950,
-                        "h": 110,
-                        "w": 440
-                    },
-                    {
                         "name": "BIND Job",
-                        "x": -197.18232941588337,
-                        "y": 790,
-                        "h": 110,
-                        "w": 360
-                    },
-                    {
-                        "name": "JCLs present",
-                        "x": -174.83665040353776,
-                        "y": 1110,
-                        "h": 110,
-                        "w": 650
-                    },
-                    {
-                        "name": "Is all containers deployed?",
-                        "x": -307.274922008476,
-                        "y": 1430,
-                        "h": 110,
-                        "w": 920
-                    },
-                    {
-                        "name": "DB2 binds present",
-                        "x": -250.9011626662833,
-                        "y": 630,
-                        "h": 110,
-                        "w": 670
+                        "x": -15.735598693681482,
+                        "y": 840,
+                        "h": 120,
+                        "w": 390
                     },
                     {
                         "name": "artifactInfo",
-                        "x": -275.43796991037755,
-                        "y": 470,
-                        "h": 110,
-                        "w": 710
+                        "x": -314.71089742867423,
+                        "y": 500,
+                        "h": 120,
+                        "w": 780
                     },
                     {
-                        "name": "Replace Tokens in JCL",
-                        "x": -219.77492200847598,
-                        "y": 1270,
-                        "h": 110,
-                        "w": 500
+                        "name": "JCLs present",
+                        "x": -322.7932118624057,
+                        "y": 1180,
+                        "h": 120,
+                        "w": 720
                     },
                     {
-                        "name": "5141234a9f8fc999231bcd52422fa2",
-                        "x": -54.77492200847598,
-                        "y": 1710,
-                        "h": 100,
-                        "w": 170
+                        "name": "DB2 binds present",
+                        "x": -299.39572551701974,
+                        "y": 670,
+                        "h": 120,
+                        "w": 740
                     },
                     {
                         "name": "Deploy Data Sets (Only DBRMs)",
-                        "x": -203.47932330345918,
-                        "y": 310,
+                        "x": -231.57029914289143,
+                        "y": 330,
+                        "h": 120,
+                        "w": 620
+                    },
+                    {
+                        "name": "Download Artifacts for zOS",
+                        "x": -240,
+                        "y": 160,
+                        "h": 120,
+                        "w": 640
+                    },
+                    {
+                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "x": -15.735598693681482,
+                        "y": 1690,
+                        "h": 80,
+                        "w": 390
+                    },
+                    {
+                        "name": "Deploy Data Sets Others",
+                        "x": -188.08813641658952,
+                        "y": 1010,
+                        "h": 120,
+                        "w": 490
+                    },
+                    {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": -23.23559869368148,
+                        "y": 1820,
                         "h": 110,
-                        "w": 560
+                        "w": 180
+                    },
+                    {
+                        "name": "Replace Tokens in JCL",
+                        "x": -95.73559869368148,
+                        "y": 1350,
+                        "h": 120,
+                        "w": 550
+                    },
+                    {
+                        "name": "Is all containers deployed?",
+                        "x": -463.2355986936815,
+                        "y": 1520,
+                        "h": 120,
+                        "w": 1020
                     }
                 ],
                 "layoutMode": "auto",
                 "type": "graph",
-                "name": "0674ea33-74b7-4ada-b13e-49671475b26a",
+                "name": "1ccb364f-1f25-4270-9994-fa35a1f87870",
                 "children": [
                     {
                         "type": "finish",
@@ -1190,16 +1184,28 @@
             "status": "Active",
             "configActionType": "ADD",
             "active": true,
-            "path": "componentTemplates\/1774e47b-0d57-0b06-eb9e-178f4035ac68\/processes\/1774e47b-1049-daf0-8dea-770c3da62987",
+            "path": "componentTemplates\/17863858-2284-4393-2e53-db4e4b9b642b\/processes\/17863858-2575-4625-711b-49d061507459",
             "deleted": false,
             "propDefs": [],
             "rootActivity": {
                 "edges": [
                     {
-                        "to": "Is all containers deployed?",
-                        "from": "Deploy Data Sets Others",
+                        "to": "Deploy Data Sets Others",
+                        "from": "BIND Job",
                         "type": "SUCCESS",
                         "value": ""
+                    },
+                    {
+                        "to": "BIND Job",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": ""
+                    },
+                    {
+                        "to": "Deploy Data Sets Others",
+                        "from": "DB2 binds present",
+                        "type": "VALUE",
+                        "value": "0"
                     },
                     {
                         "to": "8c4a989d9bee6d3e8e3fd459a7269e",
@@ -1208,19 +1214,8 @@
                         "value": ""
                     },
                     {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "Is all containers deployed?",
-                        "type": "VALUE",
-                        "value": "0"
-                    },
-                    {
-                        "to": "Download Artifacts for zOS",
-                        "type": "ALWAYS",
-                        "value": ""
-                    },
-                    {
-                        "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "to": "Replace Tokens USS",
+                        "from": "Download Artifacts for zOS",
                         "type": "SUCCESS",
                         "value": ""
                     },
@@ -1231,38 +1226,20 @@
                         "value": ""
                     },
                     {
-                        "to": "DB2 binds present",
-                        "from": "artifactInfo",
+                        "to": "5141234a9f8fc999231bcd52422fa2",
+                        "from": "8c4a989d9bee6d3e8e3fd459a7269e",
                         "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Deploy Data Sets Others",
-                        "from": "DB2 binds present",
-                        "type": "VALUE",
-                        "value": "0"
-                    },
-                    {
-                        "to": "BIND Job",
-                        "from": "DB2 binds present",
-                        "type": "VALUE",
                         "value": ""
                     },
                     {
                         "to": "5141234a9f8fc999231bcd52422fa2",
-                        "from": "BIND Job",
-                        "type": "FAILURE",
-                        "value": ""
+                        "from": "Is all containers deployed?",
+                        "type": "VALUE",
+                        "value": "0"
                     },
                     {
-                        "to": "Deploy Data Sets Others",
-                        "from": "BIND Job",
-                        "type": "SUCCESS",
-                        "value": ""
-                    },
-                    {
-                        "to": "Replace Tokens USS",
-                        "from": "Download Artifacts for zOS",
+                        "to": "DB2 binds present",
+                        "from": "artifactInfo",
                         "type": "SUCCESS",
                         "value": ""
                     },
@@ -1271,9 +1248,62 @@
                         "from": "Replace Tokens USS",
                         "type": "SUCCESS",
                         "value": ""
+                    },
+                    {
+                        "to": "Is all containers deployed?",
+                        "from": "Deploy Data Sets Others",
+                        "type": "SUCCESS",
+                        "value": ""
+                    },
+                    {
+                        "to": "Download Artifacts for zOS",
+                        "type": "ALWAYS",
+                        "value": ""
                     }
                 ],
                 "offsets": [
+                    {
+                        "name": "Is all containers deployed?",
+                        "x": -491.63444238566103,
+                        "y": 1270,
+                        "h": 110,
+                        "w": 920
+                    },
+                    {
+                        "name": "5141234a9f8fc999231bcd52422fa2",
+                        "x": -161.4492572004758,
+                        "y": 1550,
+                        "h": 100,
+                        "w": 170
+                    },
+                    {
+                        "name": "Deploy Data Sets (Only DBRMs)",
+                        "x": -196.6556427039468,
+                        "y": 470,
+                        "h": 110,
+                        "w": 560
+                    },
+                    {
+                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
+                        "x": -151.4492572004758,
+                        "y": 1430,
+                        "h": 70,
+                        "w": 360
+                    },
+                    {
+                        "name": "DB2 binds present",
+                        "x": -236.72469079927544,
+                        "y": 790,
+                        "h": 110,
+                        "w": 670
+                    },
+                    {
+                        "name": "Deploy Data Sets Others",
+                        "x": -162.0048127560314,
+                        "y": 1110,
+                        "h": 110,
+                        "w": 440
+                    },
                     {
                         "name": "Download Artifacts for zOS",
                         "x": -215,
@@ -1282,72 +1312,30 @@
                         "w": 580
                     },
                     {
-                        "name": "Deploy Data Sets Others",
-                        "x": -174.66890196256998,
-                        "y": 1110,
+                        "name": "Replace Tokens USS",
+                        "x": -160.8278213519734,
+                        "y": 310,
                         "h": 110,
-                        "w": 440
-                    },
-                    {
-                        "name": "DB2 binds present",
-                        "x": -275.03398355607743,
-                        "y": 790,
-                        "h": 110,
-                        "w": 670
-                    },
-                    {
-                        "name": "5141234a9f8fc999231bcd52422fa2",
-                        "x": 32.9854190250843,
-                        "y": 1550,
-                        "h": 100,
-                        "w": 170
+                        "w": 480
                     },
                     {
                         "name": "artifactInfo",
-                        "x": -289.06955588698895,
+                        "x": -265.71801595828583,
                         "y": 630,
                         "h": 110,
                         "w": 710
                     },
                     {
                         "name": "BIND Job",
-                        "x": -18.68124764158233,
+                        "x": -181.4492572004758,
                         "y": 950,
                         "h": 110,
                         "w": 360
-                    },
-                    {
-                        "name": "Deploy Data Sets (Only DBRMs)",
-                        "x": -209.54706938183006,
-                        "y": 470,
-                        "h": 110,
-                        "w": 560
-                    },
-                    {
-                        "name": "8c4a989d9bee6d3e8e3fd459a7269e",
-                        "x": -62.0145809749157,
-                        "y": 1430,
-                        "h": 70,
-                        "w": 360
-                    },
-                    {
-                        "name": "Replace Tokens USS",
-                        "x": -166.51568979394335,
-                        "y": 310,
-                        "h": 110,
-                        "w": 480
-                    },
-                    {
-                        "name": "Is all containers deployed?",
-                        "x": -436.6442106045453,
-                        "y": 1270,
-                        "h": 110,
-                        "w": 920
                     }
                 ],
                 "layoutMode": "auto",
                 "type": "graph",
-                "name": "964118ce-6b9b-42ba-90f4-2e7b36104400",
+                "name": "6e768445-d6aa-4d23-b836-2f723f69be1a",
                 "children": [
                     {
                         "type": "finish",
